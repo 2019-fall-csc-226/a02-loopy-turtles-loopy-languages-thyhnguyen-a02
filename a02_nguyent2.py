@@ -1,4 +1,9 @@
-# Written by Thy H. Nguyen
+######################################################################
+# Author: Thy H. Nguyen
+# Username: nguyent2
+
+# Assignment: A02: Exploring Turtles in Python
+# Purpose: Draws a 3D cube using turtles and nested for loops
 
 #Citation:
 
