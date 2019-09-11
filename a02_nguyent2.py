@@ -34,7 +34,7 @@ def main():
 
         :param bichthuy:
         :return:none
-        """/
+        """
 
         bichthuy.shape("circle")
         bichthuy.shapesize(0.1,0.1)
