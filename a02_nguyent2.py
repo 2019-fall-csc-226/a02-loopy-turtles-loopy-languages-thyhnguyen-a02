@@ -203,7 +203,7 @@ def main():
     Ask_Question_And_Reply(210, "What do you want the length of AB to be ?", jordan)
 
     # This answer variable asks for the user's input
-    answer = wns.numinput("Can you calculate the length of AB ?", "Your answer:  ", default=None, minval=0,
+    answer = wns.numinput("Can you give me any number of the length of AB ?", "Your answer:  ", default=None, minval=0,
                           maxval=10000000)
 
     Ask_Question_And_Reply(150, answer, jordan)
