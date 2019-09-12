@@ -58,7 +58,7 @@ def Set_up_shape(bichthuy):
             bichthuy.left(1)  # Set up turtle turn left 1 degrees
             bichthuy.backward(chieucao)  # Set up turtle forward the number input
 
-    # Call the function to draw wheels
+    # Call the function to draw wheels (inside another function)
     Draw_Circle(360, 0.5)
     Complete_The_Circle_To_Put_Pen_Back(90, 0.5)
     bichthuy.left(90)
@@ -73,16 +73,14 @@ def Set_up_shape(bichthuy):
     bichthuy.left(90)
     bichthuy.forward((900/pi)-80-(360/pi)) #Keep to the next car
 
-wns.bgcolor("#e6ffff")
 
-def Draw_Car_And_Fill_Car(mauu, yuri):
+def Draw_Car_And_Fill_Car(mauu, yuri,ngoc):
     """
     This function draws a whole car and fill it
     :param mauu:
     :param yuri:
     :return: none
     """
-    ngoc = turtle.Turtle()
     ngoc.color("#000080")  # Set color for turtle
     ngoc.fillcolor(yuri)  # Set fill color for turtle
     ngoc.penup()  # Set penup
@@ -103,23 +101,13 @@ lan_nay_6 = random.choice(["#00e600", "#00cc7a"])
 lan_nay_7 = random.choice(["#00e600", "#00cc7a"])
 lan_nay_8 = random.choice(["#00e600", "#00cc7a"])
 
-Draw_Car_And_Fill_Car(3 * 150, lan_nay_1)
-Draw_Car_And_Fill_Car(1 * 150, lan_nay_2)
-Draw_Car_And_Fill_Car(-1 * 150, lan_nay_3)
-Draw_Car_And_Fill_Car(-3 * 150, lan_nay_4)
-Draw_Car_And_Fill_Car(-4 * 150, lan_nay_5)
-Draw_Car_And_Fill_Car(-2 * 150, lan_nay_6)
-Draw_Car_And_Fill_Car(0 * 150, lan_nay_7)
-Draw_Car_And_Fill_Car(2 * 150, lan_nay_8)
-
-def Draw_The_Two_Points(brother):
+def Draw_The_Two_Points(brother,abcxyz):
     """
     This function draws a two point, of a line to ask for calculating the length
     :param brother:
     :return: none
     """
 
-    abcxyz = turtle.Turtle()  # Set up turtle
     abcxyz.color("#ffff00")  # Set up color for turtle
     abcxyz.shape("circle")  # Set up shape for turtle
     abcxyz.shapesize(0.1, 0.1)  # Set up shapesize for turtle
@@ -131,31 +119,17 @@ def Draw_The_Two_Points(brother):
     abcxyz.pendown()
     abcxyz.dot()
 
-Draw_The_Two_Points(-4 * 150 - 90 / pi)
-Draw_The_Two_Points(3 * 150 + 90 / pi + 900 / pi - 180 / pi - 80)
-
-conrua = turtle.Turtle()
-conrua.color("#ffff00")
-conrua.shape("circle")
-conrua.shapesize(0.1, 0.1)
-conrua.pensize(6)
-conrua.penup()
-conrua.forward(-4*150-90/pi) #Set up the pen to the starting point
-conrua.right(90)
-conrua.forward(90/pi)
-conrua.left(90)
-conrua.pendown()
-conrua.forward(((900/pi)-(80+180/pi))*8+180/pi) #Draw the line needed
 
 
-def Name_The_Two_Points(chieu_rong, chu_cai):
+
+def Name_The_Two_Points(chieu_rong, chu_cai,thy):
     """
     This function appears the point A and B
     :param chieu_rong:
     :param chu_cai:
     :return:
     """
-    thy = turtle.Turtle()
+
     thy.color("#660066")
     thy.pensize(6)
     thy.penup()
@@ -165,22 +139,16 @@ def Name_The_Two_Points(chieu_rong, chu_cai):
     thy.pendown()
     thy.write(chu_cai, move=False, align="center", font=("TimesNewRoman", 40, "bold"))
 
-Name_The_Two_Points(-4 * 150 - 45, "A")
-Name_The_Two_Points(4 * 150 + 50, "B")
 
 
-#This ask for the user's input
-answer = wns.numinput("Can you calculate the length of AB ?", "Your answer:  ", default=None, minval=0,
-                          maxval=10000000)
-
-def written(soluong, vietchu):
+def Ask_Question_And_Reply(soluong, vietchu, jordan):
     """
     This function asks questions, and appears user's answer
     :param soluong:
     :param vietchu:
     :return: none
     """
-    jordan = turtle.Turtle()
+
     jordan.color("#660066")
     jordan.pensize(6)
     jordan.penup()
@@ -191,9 +159,55 @@ def written(soluong, vietchu):
     jordan.pendown()
     jordan.write(vietchu, move=False, align="center", font =("TimesNewRoman",40,"bold") )
 
-written(210, "Can you calculate the length of AB ?")
-written(150, answer)
 
 
+def main():
+    """
+    This function calls all other functions
+    :return:
+    """
+    wns.bgcolor("#e6ffff")
+    ngoc = turtle.Turtle()
+
+    Draw_Car_And_Fill_Car(3 * 150, lan_nay_1,ngoc) #The distance of each car
+    Draw_Car_And_Fill_Car(1 * 150, lan_nay_2,ngoc)
+    Draw_Car_And_Fill_Car(-1 * 150, lan_nay_3,ngoc)
+    Draw_Car_And_Fill_Car(-3 * 150, lan_nay_4,ngoc)
+    Draw_Car_And_Fill_Car(-4 * 150, lan_nay_5,ngoc)
+    Draw_Car_And_Fill_Car(-2 * 150, lan_nay_6,ngoc)
+    Draw_Car_And_Fill_Car(0 * 150, lan_nay_7,ngoc)
+    Draw_Car_And_Fill_Car(2 * 150, lan_nay_,8,ngoc)
+
+    abcxyz = turtle.Turtle()
+    Draw_The_Two_Points(-4 * 150 - 90 / pi, abcxyz)
+    Draw_The_Two_Points(3 * 150 + 90 / pi + 900 / pi - 180 / pi - 80, abcxyz)
+
+    conrua = turtle.Turtle()
+    conrua.color("#ffff00")
+    conrua.shape("circle")
+    conrua.shapesize(0.1, 0.1)
+    conrua.pensize(6)
+    conrua.penup()
+    conrua.forward(-4 * 150 - 90 / pi)  # Set up the pen to the starting point
+    conrua.right(90)
+    conrua.forward(90 / pi)
+    conrua.left(90)
+    conrua.pendown()
+    conrua.forward(((900 / pi) - (80 + 180 / pi)) * 8 + 180 / pi)  # Draw the line needed
+
+    #Call the name the two points to name them
+    Name_The_Two_Points(-4 * 150 - 45, "A", thy)
+    Name_The_Two_Points(4 * 150 + 50, "B", thy)
+
+
+    Ask_Question_And_Reply(210, "What do you want the length of AB to be ?", jordan)
+
+    # This answer variable asks for the user's input
+    answer = wns.numinput("Can you calculate the length of AB ?", "Your answer:  ", default=None, minval=0,
+                          maxval=10000000)
+
+    Ask_Question_And_Reply(150, answer, jordan)
+
+main()
 
 wns.exitonclick()
