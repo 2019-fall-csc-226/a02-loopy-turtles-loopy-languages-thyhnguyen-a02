@@ -20,7 +20,6 @@ import turtle
 from math import pi
 import random
 
-wns = turtle.Screen()
 
 def Set_up_shape(bichthuy):
     """
@@ -29,7 +28,7 @@ def Set_up_shape(bichthuy):
     :return:none
     """
 
-    bichthuy.shape("circle")  # Set up the shape of the turtle
+    bichthuy.shape("circle")  # Set up the shape of the turtle to be circle
     bichthuy.shapesize(0.1, 0.1)  # Set up the pensize for the shapesize of the turtle
     bichthuy.speed(0)  # Set up turtle's speed
     bichthuy.pensize(6)  # Set up turtle's pensize
@@ -43,9 +42,9 @@ def Set_up_shape(bichthuy):
         :param cao:
         :return: none
         """
-        for i in range(number):
+        for i in range(number): #the number of i will equal the number of degrees
             bichthuy.right(1) #Set up turtle turn right 1 degrees to draw a circle
-            bichthuy.forward(cao) #Set up turtle to forward the number input
+            bichthuy.forward(cao) #Set up turtle to forward the number that will input later
 
     def Complete_The_Circle_To_Put_Pen_Back(solieu, chieucao):
         """
@@ -56,22 +55,23 @@ def Set_up_shape(bichthuy):
         """
         for i in range(solieu):
             bichthuy.left(1)  # Set up turtle turn left 1 degrees
-            bichthuy.backward(chieucao)  # Set up turtle forward the number input
+            bichthuy.backward(chieucao)  # Set up turtle forward the number input later
 
     # Call the function to draw wheels (inside another function)
-    Draw_Circle(360, 0.5)
-    Complete_The_Circle_To_Put_Pen_Back(90, 0.5)
-    bichthuy.left(90)
+    #Since just use circle to draw cars, so set up different radius.
+    Draw_Circle(360, 0.5) #Draw a full circle - since 360 degrees - and 1 degrees corresponds with 0.5
+    Complete_The_Circle_To_Put_Pen_Back(90, 0.5) #Draw 1/4 a circle to get the pen to the point desired for next step
+    bichthuy.left(90) #Turning the turtle to get the desired position for next step
     bichthuy.forward(40)
-    bichthuy.right(90)
-    Draw_Circle(180, 2.5)
-    bichthuy.right(90)
+    bichthuy.right(90) #Get ready for the next step
+    Draw_Circle(180, 2.5)  #Draw a half a circle, for a car, which is 180 degrees
+    bichthuy.right(90) #Turning to draw a car
     bichthuy.forward(40)
     bichthuy.right(-90)
     Draw_Circle(360, 0.5)
-    Complete_The_Circle_To_Put_Pen_Back(180, 0.5)
+    Complete_The_Circle_To_Put_Pen_Back(180, 0.5) #Drawing a wheel for a car
     bichthuy.left(90)
-    bichthuy.forward((900/pi)-80-(360/pi)) #Keep to the next car
+    bichthuy.forward((900/pi)-80-(360/pi)) #Complete the car
 
 
 def Draw_Car_And_Fill_Car(mauu, yuri,ngoc):
@@ -166,6 +166,8 @@ def main():
     This function calls all other functions
     :return:
     """
+
+    wns = turtle.Screen()
     wns.bgcolor("#e6ffff")
     ngoc = turtle.Turtle()
 
@@ -208,6 +210,5 @@ def main():
 
     Ask_Question_And_Reply(150, answer, jordan)
 
+    wns.exitonclick()
 main()
-
-wns.exitonclick()
