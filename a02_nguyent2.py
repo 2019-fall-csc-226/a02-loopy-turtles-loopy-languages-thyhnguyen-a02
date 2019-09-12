@@ -197,5 +197,3 @@ written(150, answer)
 
 
 wns.exitonclick()
-
-main()
